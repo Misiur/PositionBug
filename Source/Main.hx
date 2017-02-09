@@ -28,6 +28,15 @@ class Main extends Sprite
 
         addChild(box);
 
+        var redbox = new Sprite();
+        redbox.graphics.beginFill(0x8402db);
+        redbox.graphics.drawRect(-50, -50, 100, 100);
+        redbox.graphics.endFill();
+        redbox.scaleX = 0.1;
+        redbox.scaleY = 0.1;
+        
+        addChild(redbox);
+
         var bitmapData = Assets.getBitmapData("assets/bar.png");
 
         var map = new Tilemap(stage.stageWidth, stage.stageHeight);
@@ -66,6 +75,8 @@ class Main extends Sprite
             }
 
             box.x += speed * dt;
+            redbox.x = box.x;
+            redbox.y = box.y - 20;
             follower.x = box.x - 16;
             follower.y = box.y - 16;
 
